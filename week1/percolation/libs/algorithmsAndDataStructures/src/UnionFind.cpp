@@ -1,4 +1,4 @@
-#include "UnionFind.h"
+#include "../include/unionFind/UnionFind.h"
 
 UnionFind::UnionFind(unsigned int n): m_count(n) {
     m_parent = new unsigned int[n]; 

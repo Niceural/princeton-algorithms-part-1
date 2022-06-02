@@ -3,25 +3,23 @@
 
 #include <iostream>
 #include <vector>
-#include "IllegalArgumentException.h"
+
+#include "../libs/exceptions/include/IllegalArgumentException.h"
+#include "../libs/algorithmsAndDataStructures/include/unionFind/UnionFind.h"
 
 class Percolation {
 // private:
-    unsigned int* m_grid;
+    UnionFind m_grid;
+    bool *m_isSiteOpen;
+
     unsigned int m_size;
     unsigned int m_sizeSquared;
     unsigned int m_numberOfOpenSites;
+    unsigned int m_topVirtualSite;
+    unsigned int m_bottomVirtualSite;
 
-    unsigned int m_valueForFull;
-    unsigned int m_valueForTop;
-    unsigned int m_valueForBottom;
-
-    std::vector<unsigned int> m_topRoots;
-    std::vector<unsigned int> m_bottomRoots;
-
-    unsigned int m_getIndex(unsigned int, unsigned int);
-    char m_position(unsigned int);
-    unsigned int m_root(unsigned int);
+    unsigned int getIndex(unsigned int, unsigned int);
+    char position(unsigned int);
 public:
     Percolation(unsigned int);
     ~Percolation();
