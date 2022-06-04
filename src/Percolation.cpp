@@ -3,7 +3,7 @@
 Percolation::Percolation(int n):
     m_size(n),
     m_sizeSquared(n*n),
-    m_grid(m_sizeSquared+2), // uf for grid +2 for top and bottom virtual sites
+    m_grid(UnionFind(m_sizeSquared+2)), // uf for grid +2 for top and bottom virtual sites
     m_numberOfOpenSites(0),
     m_topVirtualSite(m_sizeSquared),
     m_bottomVirtualSite(m_sizeSquared+1)
@@ -13,7 +13,7 @@ Percolation::Percolation(int n):
     
     // initializes sites to full
     m_isSiteOpen = new bool[m_sizeSquared];
-    for (unsigned int i = 0; i < m_sizeSquared; i++) {
+    for (int i = 0; i < m_sizeSquared; i++) {
         m_isSiteOpen[i] = false;
     }
 }
@@ -38,7 +38,7 @@ void Percolation::open(int row, int col) {
         case 'b':
             m_grid.unify(id, m_bottomVirtualSite);
             if (m_isSiteOpen[id-m_size])
-                m_grid.unify(id, id+m_size);
+                m_grid.unify(id, id-m_size);
             break;
         case 'l':
             if (m_isSiteOpen[id+1])
