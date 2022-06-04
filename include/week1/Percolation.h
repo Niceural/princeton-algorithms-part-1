@@ -4,8 +4,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../libs/exceptions/include/IllegalArgumentException.h"
-#include "../libs/algorithmsAndDataStructures/include/unionFind/UnionFind.h"
+#include "../../libs/exceptions/include/IllegalArgumentException.h"
+#include "../../libs/algorithmsAndDataStructures/include/unionFind/UnionFind.h"
 
 class Percolation {
 // private:

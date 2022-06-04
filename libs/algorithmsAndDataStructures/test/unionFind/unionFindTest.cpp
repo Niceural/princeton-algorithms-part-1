@@ -2,7 +2,7 @@
 #include <boost/test/included/unit_test.hpp>
 #include <iostream>
 
-#include "../include/unionFind/UnionFind.h"
+#include "../../include/unionFind/UnionFind.h"
 
 BOOST_AUTO_TEST_CASE(test_op_reportings) {
     unsigned int n = 197;

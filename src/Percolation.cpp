@@ -1,4 +1,4 @@
-#include "../include/Percolation.h"
+#include "../include/week1/Percolation.h"
 
 Percolation::Percolation(int n):
     m_size(n),
