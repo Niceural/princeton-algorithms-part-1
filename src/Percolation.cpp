@@ -21,51 +21,51 @@ Percolation::Percolation(int n):
 void Percolation::open(int row, int col) {
     if ((row > m_size) || (row < 1) || (col > m_size) || (col < 1))
         throw IllegalArgumentException();
-    if (isOpen(row, col))
-        return;
 
-    int id = rcToId(row, col);
-    char pos = position(id);
-    m_isSiteOpen[id] = true;
-    m_numberOfOpenSites++;
+    if (!isOpen(row, col)) {
+        int id = rcToId(row, col);
+        char pos = position(id);
+        m_isSiteOpen[id] = true;
+        m_numberOfOpenSites++;
 
-    switch(pos) {
-        case 't':
-            m_grid.unify(id, m_topVirtualSite);
-            if (m_isSiteOpen[id+m_size])
-                m_grid.unify(id, id+m_size);
-            break;
-        case 'b':
-            m_grid.unify(id, m_bottomVirtualSite);
-            if (m_isSiteOpen[id-m_size])
-                m_grid.unify(id, id-m_size);
-            break;
-        case 'l':
-            if (m_isSiteOpen[id+1])
-                m_grid.unify(id, id+1);
-            if (m_isSiteOpen[id-m_size])
-                m_grid.unify(id, id-m_size);
-            if (m_isSiteOpen[id+m_size])
-                m_grid.unify(id, id+m_size);
-            break;
-        case 'r':
-            if (m_isSiteOpen[id-1])
-                m_grid.unify(id, id-1);
-            if (m_isSiteOpen[id-m_size])
-                m_grid.unify(id, id-m_size);
-            if (m_isSiteOpen[id+m_size])
-                m_grid.unify(id, id+m_size);
-            break;
-        default:
-            if (m_isSiteOpen[id+1])
-                m_grid.unify(id, id+1);
-            if (m_isSiteOpen[id-1])
-                m_grid.unify(id, id-1);
-            if (m_isSiteOpen[id-m_size])
-                m_grid.unify(id, id-m_size);
-            if (m_isSiteOpen[id+m_size])
-                m_grid.unify(id, id+m_size);
-            break;
+        switch(pos) {
+            case 't':
+                m_grid.unify(id, m_topVirtualSite);
+                if (m_isSiteOpen[id+m_size])
+                    m_grid.unify(id, id+m_size);
+                break;
+            case 'b':
+                m_grid.unify(id, m_bottomVirtualSite);
+                if (m_isSiteOpen[id-m_size])
+                    m_grid.unify(id, id-m_size);
+                break;
+            case 'l':
+                if (m_isSiteOpen[id+1])
+                    m_grid.unify(id, id+1);
+                if (m_isSiteOpen[id-m_size])
+                    m_grid.unify(id, id-m_size);
+                if (m_isSiteOpen[id+m_size])
+                    m_grid.unify(id, id+m_size);
+                break;
+            case 'r':
+                if (m_isSiteOpen[id-1])
+                    m_grid.unify(id, id-1);
+                if (m_isSiteOpen[id-m_size])
+                    m_grid.unify(id, id-m_size);
+                if (m_isSiteOpen[id+m_size])
+                    m_grid.unify(id, id+m_size);
+                break;
+            default:
+                if (m_isSiteOpen[id+1])
+                    m_grid.unify(id, id+1);
+                if (m_isSiteOpen[id-1])
+                    m_grid.unify(id, id-1);
+                if (m_isSiteOpen[id-m_size])
+                    m_grid.unify(id, id-m_size);
+                if (m_isSiteOpen[id+m_size])
+                    m_grid.unify(id, id+m_size);
+                break;
+        }
     }
 }
 

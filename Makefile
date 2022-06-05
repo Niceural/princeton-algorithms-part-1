@@ -18,6 +18,7 @@ PercolationStats: exceptions algs Percolation
 week1Main: exceptions algs Percolation PercolationStats
 	$(CC) -c -o ./build/week1/week1Main.o ./src/week1Main.cpp
 	$(CC) -o ./build/week1/week1Main ./build/algorithmsAndDataStructures/UnionFind.o ./build/week1/Percolation.o ./build/week1/PercolationStats.o ./build/week1/week1Main.o 
+	./build/week1/week1Main
 
 test_Percolation: exceptions algs Percolation
 	$(CC) -c -o ./build/week1/percolationTest.o ./test/week1/percolationTest.cpp

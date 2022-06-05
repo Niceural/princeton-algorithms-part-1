@@ -5,8 +5,8 @@ UnionFind::UnionFind(int n): m_count(n), m_length(n) {
     if (n < 1)
         throw IllegalArgumentException();
 
-    m_parent = new int[m_count]; 
-    m_size = new int[m_count];
+    m_parent = new int[m_length]; 
+    m_size = new int[m_length];
 
     for (unsigned int i = 0; i < n; i++) {
         m_parent[i] = i;
@@ -33,7 +33,7 @@ bool UnionFind::connected(int p, int q) {
 }
 
 void UnionFind::unify(int p, int q) {
-    if ((p > m_length) || (p < 0) || (q > m_length) || (q < 0)) {
+    if ((p >= m_length) || (p < 0) || (q >= m_length) || (q < 0)) {
         throw IllegalArgumentException();
     }
 

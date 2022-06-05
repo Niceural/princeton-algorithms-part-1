@@ -6,7 +6,6 @@ BOOST_AUTO_TEST_SUITE(push_test);
 
 BOOST_AUTO_TEST_CASE(push_front_test) {
     Deque<int> dq;
-    dq.pushFront(4);
 }
 
 BOOST_AUTO_TEST_SUITE_END();
