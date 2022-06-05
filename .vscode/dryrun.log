@@ -1,0 +1,9 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/nic/Documents/coursera/algo1'
+g++ -c -o ./build/algorithmsAndDataStructures/UnionFind.o ./libs/algorithmsAndDataStructures/src/UnionFind.cpp
+g++ -c -o ./build/week1/Percolation.o ./src/Percolation.cpp
+g++ -c -o ./build/percolationStats.o ./src/PercolationStats.cpp
+g++ -c -o ./build/week1Main.o ./src/week1Main.cpp
+g++ -o ./build/week1 ./build/unionFind.o ./build/percolation.o ./build/percolationStats.o ./build/week1Main.o
+make: Leaving directory '/home/nic/Documents/coursera/algo1'
+ 
